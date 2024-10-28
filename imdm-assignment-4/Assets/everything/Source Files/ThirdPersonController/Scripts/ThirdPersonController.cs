@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
+ using UnityEngine.SceneManagement;
+
 
 namespace StarterAssets
 {
@@ -390,5 +392,15 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        private void OnTriggerEnter(Collider other)
+    {
+       
+        
+          if (other.tag == "ty")
+         {
+            loseTextObject.SetActive(true);
+         }
+    }
     }
 }

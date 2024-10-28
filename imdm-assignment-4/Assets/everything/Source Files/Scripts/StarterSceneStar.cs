@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StarterSceneStar : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class StarterSceneStar : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         // Check if the colliding object has the "Player" tag
         if (other.CompareTag("Player"))
         {

@@ -7,7 +7,7 @@ public class Clouds : MonoBehaviour
 
     [Header("Motion Settings")]
     public float bobbingAmount = 0.01f;
-    public float bobbingSpeed = 0.01f;    
+    public float bobbingSpeed = 0.001f;    
 
     private Vector3 startPosition;
     private float timer;

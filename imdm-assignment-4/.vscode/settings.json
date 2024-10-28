@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "imdm-final-project.sln"
+    "dotnet.defaultSolution": "imdm-assignment-4.sln"
 }

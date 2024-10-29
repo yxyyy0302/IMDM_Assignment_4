@@ -1091,6 +1091,9 @@ Transform:
   m_Father: {fileID: 1806451266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
+=======
 >>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
 =======
 >>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
@@ -1325,7 +1328,10 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: c885e5ffa20d0a24b991ffad0531f566, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
 =======
 >>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
 --- !u!1 &473866345
@@ -1457,6 +1463,9 @@ Transform:
   m_Father: {fileID: 1165032263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
+=======
 >>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)
 =======
 >>>>>>> parent of b28f50f (Merge branch 'main' of https://github.com/yxyyy0302/IMDM_Final_Project)

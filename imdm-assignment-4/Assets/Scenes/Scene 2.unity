@@ -2495,7 +2495,7 @@ GameObject:
   - component: {fileID: 921047335}
   - component: {fileID: 921047334}
   m_Layer: 8
-  m_Name: Robot
+  m_Name: Timmy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

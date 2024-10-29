@@ -78,6 +78,7 @@ namespace StarterAssets
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
+        public GameObject loseTextObject;
 
         // player
         private float _speed;
@@ -134,6 +135,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            loseTextObject.SetActive(false);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -388,5 +390,17 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        void OnTriggerEnter(Collider other)
+    {
+        // Check if the colliding object has the "Player" tag
+        if (other.CompareTag("ty"))
+        {
+            
+            Destroy(gameObject);
+            loseTextObject.SetActive(true);
+        }
+    }
+
     }
 }

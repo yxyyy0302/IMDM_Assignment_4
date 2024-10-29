@@ -46,6 +46,11 @@ public class StarterSceneStar : MonoBehaviour
 
             // Destroy the star
             Destroy(gameObject);
+             GameObject[] tyInstances = GameObject.FindGameObjectsWithTag("ty");
+            foreach (GameObject ty in tyInstances)
+            {
+                Destroy(ty); 
+            }
             winTextObject.SetActive(true);
         }
     }

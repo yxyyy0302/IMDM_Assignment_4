@@ -4,34 +4,19 @@ using UnityEngine;
 
 public class Ty : MonoBehaviour
 {
-    public GameObject ty; 
-    GameObject[] clones;
-    int number = 10;
-    const float sponRange = 20;
-
-    void Awake()
-    {
-        clones = new GameObject[number];
-    }
-
-    void Start()
-    {
-        for (int i = 0; i < number; i++)
-        {
-            clones[i] = GameObject.Instantiate(ty); 
-            clones[i].transform.position = new Vector3(Random.Range(-sponRange, sponRange), 0.5f, Random.Range(-sponRange, sponRange));
-            clones[i].transform.rotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
-        }
-    }
+  public Transform player;
+    public float speed = 5f; 
 
     void Update()
     {
-        for (int i = 0; i < number; i++)
+        if (player != null)
         {
-            clones[i].transform.LookAt(this.transform.position); 
+            Vector3 direction = (player.position - transform.position).normalized;
 
-            Vector3 target = this.transform.position - clones[i].transform.position;
-            clones[i].GetComponent<Rigidbody>().linearVelocity = target.normalized; 
+            transform.position += direction * speed * Time.deltaTime;
+
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * speed);
         }
     }
 }

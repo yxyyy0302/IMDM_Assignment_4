@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
- using UnityEngine.SceneManagement;
-
 
 namespace StarterAssets
 {
@@ -16,7 +14,6 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        public GameObject loseTextObject;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -81,6 +78,7 @@ namespace StarterAssets
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
+        public GameObject loseTextObject;
 
         // player
         private float _speed;
@@ -393,14 +391,16 @@ namespace StarterAssets
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
     {
-       
-        
-          if (other.tag == "ty")
-         {
+        // Check if the colliding object has the "Player" tag
+        if (other.CompareTag("ty"))
+        {
+            
+            Destroy(gameObject);
             loseTextObject.SetActive(true);
-         }
+        }
     }
+
     }
 }

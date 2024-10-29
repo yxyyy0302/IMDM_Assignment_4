@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             // Change scene
             SceneManager.LoadScene("Scene 2");

@@ -7,8 +7,6 @@ TagManager:
   - Crate
   - Dirt
   - CinemachineTarget
-  - door
-  - gate
   - ty
   layers:
   - Default

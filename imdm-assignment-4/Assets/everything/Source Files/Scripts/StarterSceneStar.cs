@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StarterSceneStar : MonoBehaviour
 {
@@ -36,7 +35,6 @@ public class StarterSceneStar : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
         // Check if the colliding object has the "Player" tag
         if (other.CompareTag("Player"))
         {
@@ -48,6 +46,11 @@ public class StarterSceneStar : MonoBehaviour
 
             // Destroy the star
             Destroy(gameObject);
+             GameObject[] tyInstances = GameObject.FindGameObjectsWithTag("ty");
+            foreach (GameObject ty in tyInstances)
+            {
+                Destroy(ty); 
+            }
             winTextObject.SetActive(true);
         }
     }

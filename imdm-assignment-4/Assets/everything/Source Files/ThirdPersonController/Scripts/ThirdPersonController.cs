@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
- using UnityEngine.SceneManagement;
-
 
 namespace StarterAssets
 {
@@ -16,7 +14,6 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        public GameObject loseTextObject;
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -137,7 +134,6 @@ namespace StarterAssets
 
         private void Start()
         {
-            loseTextObject.SetActive(false);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -392,15 +388,5 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
-
-        private void OnTriggerEnter(Collider other)
-    {
-       
-        
-          if (other.tag == "ty")
-         {
-            loseTextObject.SetActive(true);
-         }
-    }
     }
 }

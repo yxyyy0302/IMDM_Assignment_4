@@ -409,7 +409,7 @@ namespace StarterAssets
         void OnTriggerEnter(Collider other)
         {
             // Check if the colliding object has the "Player" tag
-            if (other.CompareTag("key"))
+            if (other.CompareTag("key") || other.CompareTag("apple")|| other.CompareTag("star"))
             {
 
 

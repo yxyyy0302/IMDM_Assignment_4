@@ -9,6 +9,7 @@ TagManager:
   - CinemachineTarget
   - ty
   - key
+  - star
   layers:
   - Default
   - TransparentFX

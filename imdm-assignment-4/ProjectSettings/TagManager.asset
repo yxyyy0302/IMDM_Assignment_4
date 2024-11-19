@@ -8,6 +8,7 @@ TagManager:
   - Dirt
   - CinemachineTarget
   - ty
+  - key
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -79,6 +79,7 @@ namespace StarterAssets
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
         public GameObject loseTextObject;
+        public GameObject gotTextObject;
 
         // player
         private float _speed;
@@ -114,6 +115,9 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+
+
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -121,7 +125,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
                 return _playerInput.currentControlScheme == "KeyboardMouse";
 #else
-				return false;
+                return false;
 #endif
             }
         }
@@ -139,15 +143,16 @@ namespace StarterAssets
         private void Start()
         {
             loseTextObject.SetActive(false);
+            gotTextObject.SetActive(true);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
+#if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
+            Debug.LogError("Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
             AssignAnimationIDs();
@@ -394,28 +399,35 @@ namespace StarterAssets
             }
         }
 
-       
 
-      
+
+
 
 
 
 
         void OnTriggerEnter(Collider other)
-    {
-        // Check if the colliding object has the "Player" tag
-        if (other.CompareTag("ty"))
         {
-            
-            Destroy(gameObject);
-            loseTextObject.SetActive(true);
+            // Check if the colliding object has the "Player" tag
+            if (other.CompareTag("key"))
+            {
+
+
+                gotTextObject.SetActive(false);
+
+            }
+            if (other.CompareTag("ty"))
+            {
+
+                Destroy(gameObject);
+                loseTextObject.SetActive(true);
                 deathSound.Play();
 
             }
 
 
 
-    }
+        }
 
     }
 }

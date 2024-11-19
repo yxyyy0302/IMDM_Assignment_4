@@ -99,7 +99,10 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-#if ENABLE_INPUT_SYSTEM 
+        // Sound
+        public AudioSource deathSound;
+
+#if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
@@ -391,6 +394,13 @@ namespace StarterAssets
             }
         }
 
+       
+
+      
+
+
+
+
         void OnTriggerEnter(Collider other)
     {
         // Check if the colliding object has the "Player" tag
@@ -399,7 +409,12 @@ namespace StarterAssets
             
             Destroy(gameObject);
             loseTextObject.SetActive(true);
-        }
+                deathSound.Play();
+
+            }
+
+
+
     }
 
     }

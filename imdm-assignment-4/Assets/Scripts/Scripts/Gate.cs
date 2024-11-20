@@ -9,12 +9,17 @@ public class Gate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         
-         
-      if (other.tag == "Player")
+          if (other.tag == "Player")
         {
-            // Change scene
-            SceneManager.LoadScene("Scene 3");
-            
+            GameObject appleObject = GameObject.FindWithTag("apple");
+            if (appleObject != null)
+            {
+            }
+            else
+            {
+                SceneManager.LoadScene("Scene 3");
+            }
+
             // This will do the same thing.
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

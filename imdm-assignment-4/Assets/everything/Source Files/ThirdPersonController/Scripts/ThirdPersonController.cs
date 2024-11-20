@@ -420,6 +420,7 @@ namespace StarterAssets
             {
 
                 Destroy(gameObject);
+                gotTextObject.SetActive(false);
                 loseTextObject.SetActive(true);
                 deathSound.Play();
 

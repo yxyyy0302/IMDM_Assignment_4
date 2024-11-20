@@ -60,7 +60,7 @@ public class PlayerController2D : MonoBehaviour
     void FixedUpdate()
     {
         // Apply movement to the player in FixedUpdate for physics consistency
-        rb.linearVelocity = movement * speed;
+        rb.velocity = movement * speed;
     }
 
     void RotatePlayer(float x, float y)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StarterSceneStar : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class StarterSceneStar : MonoBehaviour
             {
                 Destroy(ty); 
             }
-            winTextObject.SetActive(true);
+             SceneManager.LoadScene("Win Scene");
         }
     }
 }

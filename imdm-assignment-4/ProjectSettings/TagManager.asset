@@ -11,6 +11,7 @@ TagManager:
   - key
   - star
   - apple
+  - cabinet
   layers:
   - Default
   - TransparentFX

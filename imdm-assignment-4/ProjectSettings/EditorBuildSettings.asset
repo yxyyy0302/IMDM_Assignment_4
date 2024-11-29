@@ -17,5 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene 3.unity
     guid: f85da7fb4c9be4e32bcef1db8285354d
+  - enabled: 1
+    path: Assets/Scenes/Lose Scene.unity
+    guid: 671fbc1213fc50944b60a22a6f2d1370
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: 4c1c328847b51204f8e7bedaf6e4ac2a
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: e81f739bed029824bb3b208bd4bf47d9
+  - enabled: 1
+    path: Assets/Scenes/Transition 1.unity
+    guid: dce0fe85896937843a98dd3255e96164
+  - enabled: 1
+    path: Assets/Scenes/Transition 2.unity
+    guid: bd97101cd6a7eeb4382fd0185cb67606
   m_configObjects: {}
-  m_UseUCBPForAssetBundles: 0

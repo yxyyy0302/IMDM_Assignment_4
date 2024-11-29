@@ -14,7 +14,7 @@ public class DoorController : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Scene 2");
+                SceneManager.LoadScene("Transition 1");
             }
 
             // This will do the same thing.

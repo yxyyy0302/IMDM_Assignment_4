@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
             Key key = Object.FindFirstObjectByType<Key>();
             if (key != null && key.got)
             {
-                SceneManager.LoadScene("Scene 2");
+                SceneManager.LoadScene("Transition 1");
             }
 
             // This will do the same thing.

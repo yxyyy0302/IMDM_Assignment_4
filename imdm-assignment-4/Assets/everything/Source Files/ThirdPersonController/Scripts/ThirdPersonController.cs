@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; 
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -116,6 +117,7 @@ namespace StarterAssets
         private bool _hasAnimator;
 
 
+        public float fallThreshold = -100;
 
 
         private bool IsCurrentDeviceMouse
@@ -166,9 +168,15 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
+            if (transform.position.y < fallThreshold)
+            {
+                GameOver();
+            }
+
             JumpAndGravity();
             GroundedCheck();
             Move();
+
         }
 
         private void LateUpdate()
@@ -409,7 +417,7 @@ namespace StarterAssets
         void OnTriggerEnter(Collider other)
         {
             // Check if the colliding object has the "Player" tag
-            if (other.CompareTag("key") || other.CompareTag("apple")|| other.CompareTag("star"))
+            if (other.CompareTag("key") || other.CompareTag("apple") || other.CompareTag("star"))
             {
 
 
@@ -420,13 +428,18 @@ namespace StarterAssets
             {
 
                 Destroy(gameObject);
-                gotTextObject.SetActive(false);
-                loseTextObject.SetActive(true);
                 deathSound.Play();
+                SceneManager.LoadScene("Lose Scene");
 
             }
 
 
+
+        }
+
+        void GameOver()
+        {
+            SceneManager.LoadScene("Lose Scene");
 
         }
 

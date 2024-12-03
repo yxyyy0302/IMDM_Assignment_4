@@ -8,19 +8,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.animation": {
-<<<<<<< HEAD
-      "version": "9.1.2",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.2d.common": "8.0.3",
-=======
       "version": "9.1.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.common": "8.0.2",
->>>>>>> 8c7c79065baf206b0473e3280e3296f5d29174dd
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.collections": "1.1.0",
         "com.unity.modules.animation": "1.0.0",
@@ -29,7 +21,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.aseprite": {
-      "version": "1.1.6",
+      "version": "1.1.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -174,22 +166,14 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-<<<<<<< HEAD
-        "com.unity.2d.animation": "9.1.2",
-=======
         "com.unity.2d.animation": "9.1.1",
->>>>>>> 8c7c79065baf206b0473e3280e3296f5d29174dd
         "com.unity.2d.pixel-perfect": "5.0.3",
         "com.unity.2d.psdimporter": "8.0.5",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.spriteshape": "9.0.4",
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.2d.tilemap.extras": "3.1.2",
-<<<<<<< HEAD
-        "com.unity.2d.aseprite": "1.1.6"
-=======
         "com.unity.2d.aseprite": "1.1.4"
->>>>>>> 8c7c79065baf206b0473e3280e3296f5d29174dd
       }
     },
     "com.unity.formats.fbx": {

@@ -3,16 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
     {
-         if (other.tag == "Player")
+        if (other.tag == "Player")
         {
-            // Change scene
-            SceneManager.LoadScene("Scene 2");
-            
+            GameObject keyObject = GameObject.FindWithTag("key");
+            if (keyObject != null)
+            {
+            }
+            else
+            {
+                SceneManager.LoadScene("Transition 1");
+            }
+
             // This will do the same thing.
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        
+
     }
 }

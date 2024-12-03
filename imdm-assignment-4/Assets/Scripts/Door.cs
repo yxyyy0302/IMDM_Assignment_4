@@ -6,12 +6,15 @@ public class Door : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.tag == "Player")
         {
-            // Change scene
-            SceneManager.LoadScene("Scene 2");
-            
+            Key key = Object.FindFirstObjectByType<Key>();
+            if (key != null && key.got)
+            {
+                SceneManager.LoadScene("Transition 1");
+            }
+
             // This will do the same thing.
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

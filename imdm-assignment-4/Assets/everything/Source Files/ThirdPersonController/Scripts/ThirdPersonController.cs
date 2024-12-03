@@ -1,6 +1,7 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; 
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -79,6 +80,7 @@ namespace StarterAssets
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
         public GameObject loseTextObject;
+        public GameObject gotTextObject;
 
         // player
         private float _speed;
@@ -99,7 +101,10 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-#if ENABLE_INPUT_SYSTEM 
+        // Sound
+        public AudioSource deathSound;
+
+#if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
@@ -111,6 +116,10 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+
+        public float fallThreshold = -100;
+
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -118,7 +127,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
                 return _playerInput.currentControlScheme == "KeyboardMouse";
 #else
-				return false;
+                return false;
 #endif
             }
         }
@@ -136,15 +145,16 @@ namespace StarterAssets
         private void Start()
         {
             loseTextObject.SetActive(false);
+            gotTextObject.SetActive(true);
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
+#if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
+            Debug.LogError("Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
             AssignAnimationIDs();
@@ -158,9 +168,15 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
+            if (transform.position.y < fallThreshold)
+            {
+                GameOver();
+            }
+
             JumpAndGravity();
             GroundedCheck();
             Move();
+
         }
 
         private void LateUpdate()
@@ -391,16 +407,41 @@ namespace StarterAssets
             }
         }
 
+
+
+
+
+
+
+
         void OnTriggerEnter(Collider other)
-    {
-        // Check if the colliding object has the "Player" tag
-        if (other.CompareTag("ty"))
         {
-            
-            Destroy(gameObject);
-            loseTextObject.SetActive(true);
+            // Check if the colliding object has the "Player" tag
+            if (other.CompareTag("key") || other.CompareTag("apple") || other.CompareTag("star"))
+            {
+
+
+                gotTextObject.SetActive(false);
+
+            }
+            if (other.CompareTag("ty"))
+            {
+
+                Destroy(gameObject);
+                deathSound.Play();
+                SceneManager.LoadScene("Lose Scene");
+
+            }
+
+
+
         }
-    }
+
+        void GameOver()
+        {
+            SceneManager.LoadScene("Lose Scene");
+
+        }
 
     }
 }

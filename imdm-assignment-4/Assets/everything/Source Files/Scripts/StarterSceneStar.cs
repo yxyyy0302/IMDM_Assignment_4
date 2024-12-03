@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StarterSceneStar : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class StarterSceneStar : MonoBehaviour
 
     private Vector3 startPosition;
     private float timer;
+    public AudioSource winSound;
 
     void Start()
     {
@@ -46,12 +48,13 @@ public class StarterSceneStar : MonoBehaviour
 
             // Destroy the star
             Destroy(gameObject);
-             GameObject[] tyInstances = GameObject.FindGameObjectsWithTag("ty");
+            winSound.Play();
+            GameObject[] tyInstances = GameObject.FindGameObjectsWithTag("ty");
             foreach (GameObject ty in tyInstances)
             {
                 Destroy(ty); 
             }
-            winTextObject.SetActive(true);
+             SceneManager.LoadScene("Win Scene");
         }
     }
 }
